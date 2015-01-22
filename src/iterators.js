@@ -5,6 +5,10 @@ var Iterators = {
   // - tripler([7,50,4]) should return [21,150,12].
   // Use `map` to accomplish this.
   tripler: function (numbers) {
+    var triple = numbers.map(function(x){
+    return x * 3;
+});
+    return triple;
   },
 
   // perfectSquares() should take an array of numbers as a parameter
@@ -16,6 +20,10 @@ var Iterators = {
   // - perfectSquares([1,4,9]) should return [1,4,9].
   // Use `filter` to accomplish this.
   perfectSquares: function (numbers) {
+    var squares = numbers.filter(function(x){
+      return (Math.sqrt(x) % 1 === 0);
+      });
+    return squares;
   },
 
   // product() should accept an array of numbers as a parameter
@@ -26,6 +34,10 @@ var Iterators = {
   // - product([100,200,300]) should return 6000000.
   // Use `reduce` to accomplish this.
   product: function (numbers) {
+    var products = numbers.reduce(function(prev, next){
+      return prev * next;
+    });
+    return products;
   },
 
   // hasInstructor() accepts an array of names and should return true
@@ -39,7 +51,13 @@ var Iterators = {
   // Use `some` to accomplish this.
   // Hint: see `toLowerCase`, it could be useful.
   hasInstructor: function (names) {
-  },
+    var instructors = names.some(function(x) {
+var badasspeople = [ "Tim", "Alex", "sElie", "tim", "alex", "elie"];
+      return badasspeople.indexOf(x) !== -1;
+      });
+      return instructors;
+    },
+
 
   // allSamePlayer() should accept an array of players, represented by
   // X's and O's. The players array may also contain empty spots, which
@@ -53,6 +71,11 @@ var Iterators = {
   // - allSamePlayer(["_","_","_"]) should return false.
   // Use `every` to accomplish this.
   allSamePlayer: function (players) {
+    return players.every(function(player) {
+      return player == "X";
+    }) || players.every(function(player) {
+      return player == "O";
+    });
   },
 
   // Also not an iterator metheod, necessarily. devowel() takes a
@@ -68,7 +91,13 @@ var Iterators = {
   // - devowel("Howdy") should return "Hwdy",
   // - devowel("Phone's ringing, dude.") should return "Phn's rngng, dd.".
   devowel: function (text) {
-  }
+    var arrayOfStrings = text.split('');
+    var consonants = arrayOfStrings.filter(function(x){
+      var vowels = [ "a", "e", "i", "o", "u"];
+        return vowels.indexOf(x) === -1;
+    });
+     return consonants.join('');
+  },
 };
 
 module.exports = Iterators;
